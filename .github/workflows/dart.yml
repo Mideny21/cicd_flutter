@@ -28,10 +28,10 @@ jobs:
       #   run: |
       #     echo "${{ secrets.RELEASE_KEYSTORE }}" > key.jks.asc
       #     gpg -d --passphrase "${{ secrets.RELEASE_KEYSTORE_PASSPHRASE }}" - - batch key.jks.asc > android/app/key.jks
-      # - name: Create key.properties
-      #   run: |
-      #     touch android/key.properties
-      #     echo "storePassword=1994mideny  keyPassword=1994mideny keyAlias=release storeFile=./android/app/key.jks" > ./android/key.properties
+      - name: Create key.properties
+        run: |
+          touch android/key.properties
+          echo "storePassword=1994mideny  keyPassword=1994mideny keyAlias=release storeFile=./android/app/key.jks" > ./android/key.properties
       - name: Get dependencies
         run: flutter pub get
       - name: Build APK
