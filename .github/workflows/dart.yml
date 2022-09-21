@@ -54,12 +54,12 @@ jobs:
         uses: actions/download-artifact@master
         with:
           name: release-apk
-      # - name: build release
-      #   run: ./gradlew assembleRelease
+      - name: build release
+        run: ./gradlew assembleRelease
       - name: upload artifact to Firebase App Distribution
-        uses: wzieba/Firebase-Distribution-Github-Action@v1.3.4
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
         with:
           appId: ${{secrets.FIREBASE_ANDROID_APPID}}
           token: ${{secrets.FIREBASE_TOKEN}}
           groups: alpha
-          file: build/app/outputs/apk/release/app-release.apk
+          file: app/build/outputs/apk/release/app-release-unsigned.apk
