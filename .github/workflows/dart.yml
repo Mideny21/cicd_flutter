@@ -54,6 +54,8 @@ jobs:
         uses: actions/download-artifact@master
         with:
           name: release-apk
+      # - name: build release
+      #   run: ./gradlew assembleRelease
       - name: upload artifact to Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1.3.4
         with:
